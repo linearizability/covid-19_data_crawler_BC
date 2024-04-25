@@ -3,4 +3,5 @@
 *.pyc
 Pipfile
 Pipfile.lock
+__init__.py
 venv
