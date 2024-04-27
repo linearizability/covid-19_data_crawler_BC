@@ -19,9 +19,9 @@ def get_covid19_content_url_list():
     response.encoding = "utf-8"
     bs = bs4.BeautifulSoup(response.text, "html.parser")
 
-    for i in bs.find_all("a"):
-        if "新型冠状病毒肺炎疫情最新情况" in i.get_text():
-            result.append("https://www.gov.cn" + i.get("href"))
+    for a_label in bs.find_all("a"):
+        if "新型冠状病毒肺炎疫情最新情况" in a_label.get_text():
+            result.append("https://www.gov.cn" + a_label.get("href"))
 
     return result
 
