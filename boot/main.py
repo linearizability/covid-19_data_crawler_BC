@@ -5,11 +5,11 @@
 # @Author : ZhangBoyuan
 # @Time : 2024/1/6 下午11:10
 import json
-import sqlite3
 
 import requests
 
 from constant.url_path import UrlPath
+from entity.Covid19Data import DBSession, Covid19Data
 
 
 def get_covid19_data_dict():
@@ -22,15 +22,14 @@ def get_covid19_data_dict():
 if __name__ == '__main__':
     covid19DataDict = get_covid19_data_dict()
 
-    conn = sqlite3.connect("../static/covid-19.db")
-    cur = conn.cursor()
+    newCovid19DataList = []
 
     for i in covid19DataDict:
-        sql = """insert into covid_19_data values ('%s', '%s', '%s');""" % (
-        i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'), str(i.get('VALUE_NUMERIC')))
+        newCovid19Data = Covid19Data(i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'), str(i.get('VALUE_NUMERIC')))
+        newCovid19DataList.append(newCovid19Data)
 
-        cur.execute(sql)
-        conn.commit()
-
-    cur.close()
-    conn.close()
+    if newCovid19DataList is not None and len(newCovid19DataList) > 0:
+        session = DBSession()
+        session.add_all(newCovid19DataList)
+        session.commit()
+        session.close()
