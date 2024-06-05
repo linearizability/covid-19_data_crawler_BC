@@ -18,7 +18,6 @@ def get_covid19_data_dict():
     dataJson = json.loads(response.text);
     return dataJson['value']
 
-
 if __name__ == '__main__':
     covid19DataDict = get_covid19_data_dict()
 

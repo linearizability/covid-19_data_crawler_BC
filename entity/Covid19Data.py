@@ -11,6 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 class Covid19Data(Base):
     __tablename__ = 'covid_19_data'
     ID = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
@@ -23,8 +24,7 @@ class Covid19Data(Base):
         self.DIM_GEO_CODE_M49 = DIM_GEO_CODE_M49
         self.VALUE_NUMERIC = VALUE_NUMERIC
 
+
 engine = create_engine("sqlite:///../static/covid-19.db")
 
 DBSession = sessionmaker(bind=engine)
-
-
