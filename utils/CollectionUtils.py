@@ -14,6 +14,5 @@ def isEmpty(collection):
         return True
     return False
 
-
 def isNotEmpty(collection):
     return not isEmpty(collection)

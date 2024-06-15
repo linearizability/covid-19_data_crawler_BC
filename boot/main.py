@@ -10,12 +10,13 @@ import requests
 
 from constant.url_path import UrlPath
 from entity.Covid19Data import DBSession, Covid19Data
+from utils.CollectionUtils import isNotEmpty
 
 
 def get_covid19_data_dict():
     response = requests.get(url=UrlPath.INDEX_URL)
     response.encoding = "utf-8"
-    dataJson = json.loads(response.text);
+    dataJson = json.loads(response.text)
     return dataJson['value']
 
 if __name__ == '__main__':
@@ -27,7 +28,7 @@ if __name__ == '__main__':
         newCovid19Data = Covid19Data(i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'), str(i.get('VALUE_NUMERIC')))
         newCovid19DataList.append(newCovid19Data)
 
-    if newCovid19DataList is not None and len(newCovid19DataList) > 0:
+    if isNotEmpty(newCovid19DataList):
         session = DBSession()
         session.add_all(newCovid19DataList)
         session.commit()
