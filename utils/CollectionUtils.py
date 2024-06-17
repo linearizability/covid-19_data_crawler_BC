@@ -4,7 +4,6 @@
 # @Author : ZhangBoyuan
 # @Time : 2024/6/10 18:14
 
-
 def isEmpty(collection):
     if collection is None:
         return True
@@ -13,6 +12,7 @@ def isEmpty(collection):
     if len(collection) <= 0:
         return True
     return False
+
 
 def isNotEmpty(collection):
     return not isEmpty(collection)
