@@ -19,7 +19,6 @@ class UNM94(Base):
     def __init__(self, COUNTRY_NAME):
         self.COUNTRY_NAME = COUNTRY_NAME
 
-
 engine = create_engine("sqlite:///../static/covid-19.db")
 
 DBSession = sessionmaker(bind=engine)
