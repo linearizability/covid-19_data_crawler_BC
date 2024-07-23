@@ -7,6 +7,7 @@
 import json
 
 import requests
+from bs4 import BeautifulSoup
 
 from constant.url_path import UrlPath
 from entity.Covid19Data import DBSession, Covid19Data
@@ -19,7 +20,15 @@ def get_covid19_data_dict():
     dataJson = json.loads(response.text)
     return dataJson['value']
 
-if __name__ == '__main__':
+
+# def get_unm94_dict():
+#     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
+#     for table in soup.find_all('dev', class_="section"):
+#         for tr in table.find_all('tr', class_="tr_bg"):
+#             print(tr.get_text())
+
+
+def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
 
     newCovid19DataList = []
@@ -33,3 +42,7 @@ if __name__ == '__main__':
         session.add_all(newCovid19DataList)
         session.commit()
         session.close()
+
+
+if __name__ == '__main__':
+    covid19DataDict = get_covid19_data_dict()
