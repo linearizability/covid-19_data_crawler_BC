@@ -21,11 +21,11 @@ def get_covid19_data_dict():
     return dataJson['value']
 
 
-# def get_unm94_dict():
-#     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
-#     for table in soup.find_all('dev', class_="section"):
-#         for tr in table.find_all('tr', class_="tr_bg"):
-#             print(tr.get_text())
+def get_unm94_dict():
+    soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
+    for div in soup.find_all('div', class_="Area table_roll table_item"):
+        for tr in div.find_all('tr', class_="tr_bg"):
+            print(tr.get_text())
 
 
 def sync_covid19_data():
@@ -45,4 +45,4 @@ def sync_covid19_data():
 
 
 if __name__ == '__main__':
-    covid19DataDict = get_covid19_data_dict()
+    covid19DataDict = get_unm94_dict()
