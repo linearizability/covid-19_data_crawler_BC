@@ -23,7 +23,6 @@ def get_covid19_data_dict():
 
 def get_unm94_dict():
     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
-
     for div in soup.find_all('div', class_="Area table_roll table_item"):
         for tr in div.find_all('tr', class_="tr_bg"):
             print(tr.get_text())
