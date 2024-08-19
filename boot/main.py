@@ -7,10 +7,12 @@
 import json
 
 import requests
+import re
 from bs4 import BeautifulSoup
 
 from constant.url_path import UrlPath
 from entity.Covid19Data import DBSession, Covid19Data
+from entity.UNM94 import UNM94
 from utils.CollectionUtils import isNotEmpty
 
 
@@ -22,10 +24,14 @@ def get_covid19_data_dict():
 
 
 def get_unm94_dict():
+    unm94List = []
     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
     for div in soup.find_all('div', class_="Area table_roll table_item"):
         for tr in div.find_all('tr', class_="tr_bg"):
-            print(tr.get_text())
+            chinese_chars = re.findall(r'[\u4e00-\u9fff]+', tr.text)
+            digits = re.findall(r'\d+', tr.text)
+            unm94List.append(UNM94(digits, chinese_chars))
+    return unm94List
 
 
 def sync_covid19_data():
