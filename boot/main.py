@@ -38,7 +38,6 @@ def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
 
     newCovid19DataList = []
-
     for i in covid19DataDict:
         newCovid19Data = Covid19Data(i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'), str(i.get('VALUE_NUMERIC')))
         newCovid19DataList.append(newCovid19Data)
