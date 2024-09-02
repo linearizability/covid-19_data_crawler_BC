@@ -48,6 +48,5 @@ def sync_covid19_data():
         session.commit()
         session.close()
 
-
 if __name__ == '__main__':
     covid19DataDict = get_unm94_dict()
