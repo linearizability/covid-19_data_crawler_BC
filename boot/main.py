@@ -33,7 +33,6 @@ def get_unm94_dict():
             unm94List.append(UNM94(digits, chinese_chars))
     return unm94List
 
-
 def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
 
