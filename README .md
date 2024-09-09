@@ -3,12 +3,6 @@
 # Acknowledgments
 We would like to extend our gratitude to the following individuals and organizations who have contributed to this project:
 
-- **JetBrains** 
-  - We would like to express our sincere appreciation to JetBrains for providing us with PyCharm. This powerful Integrated Development Environment (IDE) has been instrumental in enhancing our Python development workflow, making our coding experience more efficient and enjoyable.
-
-- **Lena Morozova**
-  - We would like to thank Lena Morozova for her interest and suggestions regarding the project. Due to my own oversight, I had not added a README file to my open-source project. Thank you for your reminder; it was a great suggestion. Fortunately, it's not too late, and I have now added it.
-
 ## Project Description
 
 This project aims to automatically scrape COVID-19 related data using Python and store it in a structured format (such as JSON). The collected data can be used for further data analysis, visualization, and other purposes. The project utilizes the `requests` library to send HTTP requests, the `BeautifulSoup` library to parse HTML documents, and the `pandas` library to handle data.
