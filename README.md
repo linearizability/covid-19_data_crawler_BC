@@ -46,7 +46,7 @@ pip install requests beautifulsoup4 pandas
 Clone this repository locally:
 
 ```bash
-git clone git@github.com:byuan98/covid-19_data_crawler_BC.git
+git clone git@github.com:linearizability/covid-19_data_crawler_BC.git
 
 cd covid-19_data_crawler_BC/boot
 ```
@@ -69,5 +69,5 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 For any questions or suggestions, please contact:
 
-- GitHub: [ZhangBoyuan](https://github.com/byuan98)
+- GitHub: [ZhangBoyuan](https://github.com/linearizability)
 - Email: byuan98@outlook.com
