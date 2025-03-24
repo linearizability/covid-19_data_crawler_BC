@@ -23,7 +23,6 @@ class UNM94(Base):
         self.ID = ID
         self.COUNTRY_NAME = COUNTRY_NAME
 
-
 engine = create_engine("sqlite:///../static/covid-19.db")
 
 DBSession = sessionmaker(bind=engine)
