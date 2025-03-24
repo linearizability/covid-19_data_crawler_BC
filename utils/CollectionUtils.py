@@ -4,7 +4,7 @@
 # @Author : ZhangBoyuan
 # @Time : 2024/6/10 18:14
 
-def isEmpty(collection):
+def is_empty(collection):
     if collection is None:
         return True
     if not isinstance(collection, list):
@@ -13,5 +13,5 @@ def isEmpty(collection):
         return True
     return False
 
-def isNotEmpty(collection):
-    return not isEmpty(collection)
+def is_not_empty(collection):
+    return not is_empty(collection)

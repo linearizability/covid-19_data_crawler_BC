@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from constant.url_path import UrlPath
 from entity.Covid19Data import DBSession, Covid19Data
 from entity.UNM94 import UNM94
-from utils.CollectionUtils import isNotEmpty
+from utils.CollectionUtils import is_not_empty
 
 
 def get_covid19_data_dict():
@@ -33,6 +33,16 @@ def get_unm94_dict():
             unm94List.append(UNM94(digits, chinese_chars))
     return unm94List
 
+
+def sync_unm94_data():
+    unm94List = get_unm94_dict()
+    if is_not_empty(unm94List):
+        session = DBSession()
+        session.add_all(unm94List)
+        session.commit()
+        session.close()
+
+
 def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
 
@@ -41,11 +51,12 @@ def sync_covid19_data():
         newCovid19Data = Covid19Data(i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'), str(i.get('VALUE_NUMERIC')))
         newCovid19DataList.append(newCovid19Data)
 
-    if isNotEmpty(newCovid19DataList):
+    if is_not_empty(newCovid19DataList):
         session = DBSession()
         session.add_all(newCovid19DataList)
         session.commit()
         session.close()
 
+
 if __name__ == '__main__':
-    covid19DataDict = get_unm94_dict()
+    sync_covid19_data()

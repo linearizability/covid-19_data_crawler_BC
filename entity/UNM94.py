@@ -12,8 +12,8 @@ Base = declarative_base()
 
 
 class UNM94(Base):
-    __tablename__ = 'UNM94'
-    ID = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    __tablename__ = 'unm94'
+    ID = Column(Integer, primary_key=True, autoincrement=False, nullable=False)
     COUNTRY_NAME = Column(String(255))
 
     def __init__(self, COUNTRY_NAME):
