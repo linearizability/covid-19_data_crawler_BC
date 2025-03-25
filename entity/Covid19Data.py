@@ -3,7 +3,6 @@
 # @File Covid19Data.py
 # @Author : ZhangBoyuan
 # @Time : 2024/5/4 下午6:56
-import uuid
 
 from sqlalchemy import Column, String, create_engine, Integer
 from sqlalchemy.ext.declarative import declarative_base

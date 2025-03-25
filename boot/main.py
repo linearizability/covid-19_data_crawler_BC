@@ -59,4 +59,4 @@ def sync_covid19_data():
 
 
 if __name__ == '__main__':
-    sync_covid19_data()
+    sync_unm94_data()
