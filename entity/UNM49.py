@@ -1,6 +1,6 @@
 # -*- coding = utf-8 -*-
 # @Software: PyCharm
-# @File UNM94.py
+# @File UNM49.py
 # @Author : ZhangBoyuan
 # @Time : 2024/6/17 18:53
 
@@ -11,8 +11,8 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 
 
-class UNM94(Base):
-    __tablename__ = 'unm94'
+class UNM49(Base):
+    __tablename__ = 'unm49'
     ID = Column(Integer, primary_key=True, autoincrement=False, nullable=False)
     COUNTRY_NAME = Column(String(255))
 

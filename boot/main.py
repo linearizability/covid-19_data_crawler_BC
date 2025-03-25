@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 from constant.url_path import UrlPath
 from entity.Covid19Data import DBSession, Covid19Data
-from entity.UNM94 import UNM94
+from entity.UNM49 import UNM49
 from utils.CollectionUtils import is_not_empty
 
 
@@ -23,22 +23,22 @@ def get_covid19_data_dict():
     return dataJson['value']
 
 
-def get_unm94_dict():
-    unm94List = []
+def get_unm49_dict():
+    result = []
     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
     for div in soup.find_all('div', class_="Area table_roll table_item"):
         for tr in div.find_all('tr', class_="tr_bg"):
             chinese_chars = re.findall(r'[\u4e00-\u9fff]+', tr.text)
             digits = re.findall(r'\d+', tr.text)
-            unm94List.append(UNM94(digits, chinese_chars))
-    return unm94List
+            result.append(UNM49(digits, chinese_chars))
+    return result
 
 
-def sync_unm94_data():
-    unm94List = get_unm94_dict()
-    if is_not_empty(unm94List):
+def sync_unm49_data():
+    unm49List = get_unm49_dict()
+    if is_not_empty(unm49List):
         session = DBSession()
-        session.add_all(unm94List)
+        session.add_all(unm49List)
         session.commit()
         session.close()
 
@@ -59,4 +59,4 @@ def sync_covid19_data():
 
 
 if __name__ == '__main__':
-    sync_unm94_data()
+    sync_unm49_data()
