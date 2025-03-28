@@ -22,7 +22,6 @@ def get_covid19_data_dict():
     dataJson = json.loads(response.text)
     return dataJson['value']
 
-
 def get_unm49_dict():
     result = []
     soup = BeautifulSoup(requests.get(url=UrlPath.UN_M49_URL).text, 'html.parser')
@@ -33,7 +32,6 @@ def get_unm49_dict():
             result.append(UNM49(digits, chinese_chars))
     return result
 
-
 def sync_unm49_data():
     unm49List = get_unm49_dict()
     if is_not_empty(unm49List):
@@ -41,7 +39,6 @@ def sync_unm49_data():
         session.add_all(unm49List)
         session.commit()
         session.close()
-
 
 def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
@@ -56,7 +53,6 @@ def sync_covid19_data():
         session.add_all(newCovid19DataList)
         session.commit()
         session.close()
-
 
 if __name__ == '__main__':
     sync_unm49_data()
