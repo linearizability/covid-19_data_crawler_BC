@@ -31,6 +31,7 @@ def get_unm49_dict():
             chinese_chars = re.findall(r'[\u4e00-\u9fff]+', tr.text)
             digits = re.findall(r'\d+', tr.text)
             result.append(UNM49(digits, chinese_chars))
+
     return result
 
 
