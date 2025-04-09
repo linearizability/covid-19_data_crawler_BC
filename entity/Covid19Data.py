@@ -23,7 +23,6 @@ class Covid19Data(Base):
         self.DIM_GEO_CODE_M49 = DIM_GEO_CODE_M49
         self.VALUE_NUMERIC = VALUE_NUMERIC
 
-
 engine = create_engine("sqlite:///../static/covid-19.db")
 
 DBSession = sessionmaker(bind=engine)
