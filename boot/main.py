@@ -20,6 +20,7 @@ def get_covid19_data_dict():
     response = requests.get(url=UrlPath.INDEX_URL)
     response.encoding = "utf-8"
     dataJson = json.loads(response.text)
+
     return dataJson['value']
 
 
