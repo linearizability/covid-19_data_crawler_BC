@@ -59,5 +59,6 @@ def sync_covid19_data():
         session.commit()
         session.close()
 
+
 if __name__ == '__main__':
-    sync_unm49_data()
+    sync_covid19_data()
