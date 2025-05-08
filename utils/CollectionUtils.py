@@ -13,5 +13,6 @@ def is_empty(collection):
         return True
     return False
 
+
 def is_not_empty(collection):
     return not is_empty(collection)
