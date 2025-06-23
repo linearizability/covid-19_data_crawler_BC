@@ -44,7 +44,6 @@ def sync_unm49_data():
         session.commit()
         session.close()
 
-
 def sync_covid19_data():
     covid19DataDict = get_covid19_data_dict()
 
