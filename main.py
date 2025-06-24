@@ -5,4 +5,4 @@
 # @Time : 2025/6/24 10:25
 from scrapy.cmdline import execute
 
-execute('scrapy crawl quotes -o quotes.json'.split())
+execute('scrapy crawl quotes'.split())
