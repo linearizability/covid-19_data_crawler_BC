@@ -3,7 +3,6 @@
 # @File quotes_spider.py
 # @Author : ZhangBoyuan
 # @Time : 2025/6/24 10:18
-import json
 
 import scrapy
 
@@ -17,4 +16,4 @@ class QuotesSpider(scrapy.Spider):
 
     def parse(self, response):
         for i in response.json().get('value'):
-            print(i.get('DIM_GEO_CODE_M49') , i.get('VALUE_NUMERIC'))
+            print(i.get('DIM_GEO_CODE_M49'), i.get('VALUE_NUMERIC'))
