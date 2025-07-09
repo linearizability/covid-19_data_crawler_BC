@@ -8,7 +8,6 @@ import scrapy
 
 import m49_dict
 
-
 class Covid19DataSpider(scrapy.Spider):
     name = "covid19Data"
     start_urls = [
