@@ -5,7 +5,6 @@
 # @Time : 2025/6/24 10:18
 
 import scrapy
-
 import m49_dict
 
 class Covid19DataSpider(scrapy.Spider):
