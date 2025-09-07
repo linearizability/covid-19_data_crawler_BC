@@ -14,6 +14,7 @@ class Covid19DataSpider(scrapy.Spider):
         .format("2025-04-27")
     ]
 
+
     def parse(self, response):
         for i in response.json().get('value'):
             if i.get('DIM_GEO_CODE_M49') in m49_dict.m49_to_country.keys():
