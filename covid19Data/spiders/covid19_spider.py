@@ -19,3 +19,6 @@ class Covid19DataSpider(scrapy.Spider):
                 print(i.get('DIM_TIME'), i.get('DIM_GEO_CODE_M49'),
                       m49_dict.m49_to_country.get(i.get('DIM_GEO_CODE_M49')),
                       i.get('VALUE_NUMERIC'))
+
+
+
